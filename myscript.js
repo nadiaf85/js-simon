@@ -21,22 +21,22 @@ function creaNumeriRandom(){
         {
             numeriArray.push(nuovoNumero); 
         }
-        contenitoreNumeri.innerHTML = numeriArray;
+        contenitoreNumeri.innerHTML = nuovoNumero;
     } 
 }
 
 //Creo funzione con timer per memorizzare numeri
 
-let timer = setInterval(function(){                          
-    secondi--;                                                  
-    if(secondi==0){                                              
-        clearInterval(timer);                                
-    }
-    tempo.innerHTML = ("Memorizza:"+ secondi);  
-}, 1000);
+// let timer = setInterval(function(){                          
+//     secondi--;                                                  
+//     if(secondi==0){                                              
+//         clearInterval(timer);                                
+//     }
+//     tempo.innerHTML = ("Memorizza i seguenti numeri:"+ secondi);  
+// }, 1000);
 
 
-setTimeout(myFunction,3000);
+// setTimeout(myFunction,3000);
 
 function myFunction(){
     let numeriUtente = [];

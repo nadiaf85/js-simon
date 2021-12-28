@@ -6,50 +6,45 @@
 // quanti e quali dei numeri da indovinare sono stati individuati.
 
 let numeriArray = [];
+    for(let i=0;i < 5; i++){
+    numeriArray[i]= (Math.floor(Math.random()* 100 + 1));
+    }
+    console.log(numeriArray);
+    
+let numeri = document.getElementById ("numeri");
+numeri.innerHTML = numeriArray;
+
 let contenitoreNumeri = document.getElementById("contenitore");
-let secondi = 20;
+let secondi = 30;
 let tempo = document.getElementById("tempo_rimanente");
-
-
-function creaNumeriRandom(){   
-
-    while(numeriArray.length < 5)
-    {
-        let nuovoNumero = (Math.floor(Math.random()* 100 + 1));
-              
-        if( !numeriArray.includes( nuovoNumero ) )
-        {
-            numeriArray.push(nuovoNumero); 
-        }
-        contenitoreNumeri.innerHTML = nuovoNumero;
-    } 
-}
+tempo.innerHTML = secondi;
 
 //Creo funzione con timer per memorizzare numeri
 
-// let timer = setInterval(function(){                          
-//     secondi--;                                                  
-//     if(secondi==0){                                              
-//         clearInterval(timer);                                
-//     }
-//     tempo.innerHTML = ("Memorizza i seguenti numeri:"+ secondi);  
-// }, 1000);
+let timer = setInterval(function(){                          
+    secondi--;                                                  
+    if(secondi==0){                                              
+        clearInterval(tempo,numeriArray);
+        numeri.innerHTML = "inserisci numeri";
+        tempo.innerHTML = "tempo scaduto";
+        setTimeout(myFunction,1000);                                
+    }else{
+    tempo.innerHTML = secondi;  
+}}, 1000);
 
-
-// setTimeout(myFunction,3000);
 
 function myFunction(){
     let numeriUtente = [];
-
+    let result = '';
     for(let i=0; i<5; i++){
         let utenteNumero = parseInt(prompt("inserisci un numero")); //chiedo all'utente di inserire un numero
+        numeriUtente.push(utenteNumero);
+        result=0;
 
-        if (utenteNumero == numeriArray[i]){
-            numeriUtente.push(utenteNumero);
-            console.log(utenteNumero);
-
-        } else {
-            console.log(utenteNumero);
+        if(numeriArray.includes( numeriUtente )){
+            result ++;
         }
-    }
 }
+console.log(numeriUtente,result);
+document.writeln ('hai indovinato' + result + 'numeri');
+};

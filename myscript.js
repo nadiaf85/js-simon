@@ -6,7 +6,9 @@
 // quanti e quali dei numeri da indovinare sono stati individuati.
 
 let numeriArray = [];
-let contenitoreNumeri = document.getElementById("contenitore_numeri");
+let contenitoreNumeri = document.getElementById("contenitore");
+let secondi = 20;
+let tempo = document.getElementById("tempo_rimanente");
 
 
 function creaNumeriRandom(){   
@@ -19,16 +21,26 @@ function creaNumeriRandom(){
         {
             numeriArray.push(nuovoNumero); 
         }
-        container.innerHTML += `<div id="contenitore_numeri">${numeriArray[i]}</div>`;
+        contenitoreNumeri.innerHTML = numeriArray;
     } 
 }
 
-//Creo funzione con timer
+//Creo funzione con timer per memorizzare numeri
 
-setTimeout(memorizza,3000);
+let timer = setInterval(function(){                          
+    secondi--;                                                  
+    if(secondi==0){                                              
+        clearInterval(timer);                                
+    }
+    tempo.innerHTML = ("Memorizza:"+ secondi);  
+}, 1000);
 
-function memorizza(){
+
+setTimeout(myFunction,3000);
+
+function myFunction(){
     let numeriUtente = [];
+
     for(let i=0; i<5; i++){
         let utenteNumero = parseInt(prompt("inserisci un numero")); //chiedo all'utente di inserire un numero
 

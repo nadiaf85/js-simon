@@ -43,12 +43,14 @@ function myFunction(){
         let utenteNumero = parseInt(prompt("inserisci un numero")); //chiedo all'utente di inserire un numero
         numeriUtente.push(utenteNumero);
         result=0;
+        numeriIndovinati=[];
         for (let i=0; i<numeriArray.length; i++){
-        if(numeriArray.includes( numeriUtente[i])){
-            result ++;
+            if(numeriArray.includes( numeriUtente[i])){
+                numeriIndovinati.push(numeriUtente[i]);
+                result ++;
         }
     }
 }
-let risultato = document.getElementById("risultato");
-risultato.innerHTML = 'Hai indovinato' + ' '+'<br>' + result + ' ' +'<br>'+ 'numeri' ;
+let risultato = document.getElementById("risultato"); //stampo in html risultati
+risultato.innerHTML = 'Hai indovinato' + ' '+'<br>' + result + ' ' +'<br>'+ 'numeri'+'<br>'+ numeriIndovinati;
 };

@@ -49,9 +49,6 @@ function myFunction(){
         }
     }
 }
-// console.log(numeriUtente,result);
-// document.writeln ('Hai indovinato' + result + 'numeri');
-};
-
 let risultato = document.getElementById("risultato");
-risultato.innerHTML = 'Hai indovinato' + ' '+'<br>' + risultato + ' ' +'<br>'+ 'numeri' ;
+risultato.innerHTML = 'Hai indovinato' + ' '+'<br>' + result + ' ' +'<br>'+ 'numeri' ;
+};

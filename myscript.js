@@ -5,6 +5,9 @@
 // Dopo che sono stati inseriti i 5 numeri, il software dice
 // quanti e quali dei numeri da indovinare sono stati individuati.
 
+
+//Creo numeri random
+
 let numeriArray = [];
     for(let i=0;i < 5; i++){
     numeriArray[i]= (Math.floor(Math.random()* 100 + 1));
@@ -24,7 +27,7 @@ tempo.innerHTML = secondi;
 let timer = setInterval(function(){                          
     secondi--;                                                  
     if(secondi==0){                                              
-        clearInterval(tempo,numeriArray);
+        clearInterval(timer,numeriArray);
         numeri.innerHTML = "inserisci numeri";
         tempo.innerHTML = "tempo scaduto";
         setTimeout(myFunction,1000);                                
@@ -40,11 +43,15 @@ function myFunction(){
         let utenteNumero = parseInt(prompt("inserisci un numero")); //chiedo all'utente di inserire un numero
         numeriUtente.push(utenteNumero);
         result=0;
-
-        if(numeriArray.includes( numeriUtente )){
+        for (let i=0; i<numeriArray.length; i++){
+        if(numeriArray.includes( numeriUtente[i])){
             result ++;
         }
+    }
 }
-console.log(numeriUtente,result);
-document.writeln ('hai indovinato' + result + 'numeri');
+// console.log(numeriUtente,result);
+// document.writeln ('Hai indovinato' + result + 'numeri');
 };
+
+let risultato = document.getElementById("risultato");
+risultato.innerHTML = 'Hai indovinato' + ' '+'<br>' + risultato + ' ' +'<br>'+ 'numeri' ;
